@@ -13,7 +13,7 @@ Se incluye una función para depurar, que se puede habilitar o deshabilitar.
 - Si el valor del potenciómetro es menor o igual a 400 -> Solo Led verde encendido.
 - Si el valor del potenciómetro es menor o igual a 700 -> Solo el Led rojo apagado.
 - Si el valor del potenciómetro es menor o igual a 1000 -> Se apagan los leds.
-- Si el valor del potenciómetro esta entre 1001 y 1023-> Parpadean los leds 
+- Si el valor del potenciómetro esta entre 1001 y 1023 -> Parpadean los leds 
   (el tiempo entre parpadeos es el mismo valor que el potenciometro).
 - Si debugMode es verdadero, se envia un mensaje cada x tiempo (x = debugDelay(ms))
 
@@ -34,19 +34,19 @@ Se incluye una función para depurar, que se puede habilitar o deshabilitar.
 
 ### Circuito
 
-Protoboard
+**Protoboard**
 
 ***
 ![Protoboard](https://github.com/UlisesGascon/Arduino-Avanzado-CEVUG./blob/master/practica01/practica01_Protoboard.png)
 
 
-Esquema
+**Esquema**
 
 ***
 ![Esquema](https://github.com/UlisesGascon/Arduino-Avanzado-CEVUG./blob/master/practica01/practica01_Esquema.png)
 
 
-PBC
+**PBC**
 
 ***
 ![PBC](https://github.com/UlisesGascon/Arduino-Avanzado-CEVUG./blob/master/practica01/practica01_PCB.png)
