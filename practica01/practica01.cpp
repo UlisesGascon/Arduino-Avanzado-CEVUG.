@@ -4,13 +4,40 @@ Practica 1
 Alumno: Ulises Gascón
 */
 
+/*
+Descripción:
+
+En esta práctica el objetivo es que los leds se apaguen, enciendan o parpadeen en función del valor del potenciómetro.
+Se incluye una función para depurar, que se puede habilitar o deshabilitar.
+
+Lógica:
+- Si el valor del potenciometro es menor o igual a 100 -> Se apagan los leds.
+
+- Si el valor del potenciometro es menor o igual a 400 -> Solo Led verde encendido.
+
+- Si el valor del potenciometro es menor o igual a 700 -> Solo el Led rojo apagado.
+
+- Si el valor del potenciometro es menor o igual a 1000 -> Se apagan los leds.
+
+- Si el valor del potenciometro es mayor o igual a 1001 -> Parpadean los leds 
+(el tiempo entre parpadeos es el mismo valor que el potenciometro).
+
+- Si debugMode es true, se envia el status cada x tiempo (x = debugDelay)
+
+Extra: Modo Debug. Imprime información por consola. Solo es necesario cambiar el valor booleano de debugMode
+
+Hardware necesario:
+- Potenciometro x1 (Pin A0)
+- Led x3 (Pin 3, 4 y 5)
+*/
+
 int ledGreen = 3;
 int ledOrange = 4;
 int ledRed = 5;
 
 int potenciometro = 0;
 
-int debugMode = true;
+bool debugMode = false;
 int debugDelay = 1000;
 
 
