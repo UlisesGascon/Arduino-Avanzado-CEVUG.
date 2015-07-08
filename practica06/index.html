@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>Fortune Cookie</title>
+</head>
+
+<!-- Estos estilos ajustan al forma del botón y la posición de los elementos-->
+<style type="text/css">
+	.btn {
+  margin-top: 60px;
+  margin-left: 330px;	
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  cursor: pointer;	
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+.img{
+	max-width: 900px;
+}
+.message{
+	margin-left: 170px;
+	max-width: 550px;
+	margin-top: -100px;
+}
+</style>
+<!-- Librería de Socket.io... del localhost:PUERTO/sock.... o IP:PUERTO/sock...-->
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript">
+var socket = io.connect();
+
+// En caso de querer depurar...
+var debugMode = false;
+
+// Impresion de los mensajes del servidor.
+function message(content)
+{
+  // se busca el div #storage y se actualiza su contenido con el mensaje del servidor.
+  var x= document.getElementById("storage");
+  x.innerHTML = content;
+
+  // imprime el mensaje en la consola.
+  if (debugMode) {
+  console.log(content);
+  };
+}
+
+// Activa la escucha con el servidor, a la espera del código 'mensaje' y su contenido
+socket.on('message', function(x) { message(x); });
+
+// Función que se envia al servidor cuando se pulsa el botón.
+function callserver()
+{
+  socket.emit('called', 'Nothing');
+}
+</script>
+
+<body>
+<img class="img" src="http://www.blog.ulisesgascon.com/wp-content/uploads/2015/07/Fortune_cookie.jpg">
+<fieldset class="message">
+
+<div id="storage"></div>
+</fieldset>
+
+<form name="form1" method="post" action="">
+
+<input class="btn" type="button"  value="I feel lucky today!" onClick="callserver()">
+
+</form>
+</body>
+</html>
