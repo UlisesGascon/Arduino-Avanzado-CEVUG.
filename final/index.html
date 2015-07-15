@@ -1,0 +1,1762 @@
+<!-- 
+=== ESTRUCTURA DE DATOS ===
+
+Parte I - ( Estilos y Contenido) Html y Css
+
+- Estilos -
+
+1.1 Estilos
+
+1.2 Estilos Propios
+
+- Contenidos y Estructura -
+
+2.1 Contenido Cabecera 
+
+2.2 Menu Paneles
+
+2.3 Panel: Documentación
+2.3.1 Documentación: Nodejs
+2.3.2 Documentación: Johnny-Five
+2.3.3 Documentación: Sockets.IO (Websockets)
+2.3.4 Documentación: Jquery-QRCode
+2.3.5 Documentación: Twitter Bootstrap
+2.3.6 Documentación: EduBasica Shield
+
+2.4 Panel: Información
+2.4.1 Información: Variables del entorno
+2.4.2 Información: Conectividad
+2.4.3 Información: Más detalles
+2.4.4 Información: QR
+2.4.5 Información: Información en tiempo real
+2.4.5.1 Información: Información en tiempo real -> Imagen
+2.4.5.2 Información: Información en tiempo real -> Lista
+
+2.5 Panel: Test
+2.5.1 Test: Full Test
+2.5.2 Test: Servo Test
+2.5.3 Test: Motores Test
+2.5.4 Test: Led Test
+
+2.6 Panel: Avanzado
+2.6.1 Avanzado: Dirección
+2.6.2 Avanzado: Leds
+2.6.3 Avanzado: Servo
+2.6.4 Avanzado: LCD
+
+2.7 Footer
+
+2.8 Modal de Panel Información
+2.8.1 Panel Información: CPU
+2.8.2 Panel Información: Memoria
+2.8.3 Panel Información: Procesos
+
+
+Parte II - (Funcionalidad) Javascript y Jquery
+
+- Librerias -
+3.1 Librerias de terceros
+3.2 Scripts propios
+3.2.1 Propio: Ajustes visuales
+3.2.1.1 Propio: Ajustes visuales -> Limpiar Campos formulario LCD
+3.2.1.2 Propio: Ajustes visuales -> Ocultar elementos (General)
+3.2.1.3 Propio: Ajustes visuales -> Botones de CustomBlink
+3.2.1.4 Propio: Ajustes visuales -> Botones de LedsTes
+3.2.1.5 Propio: Ajustes visuales -> Botones de Fulltest
+3.2.1.6 Propio: Ajustes visuales -> Botones de servotest
+3.2.2 Propio: Variables Globales
+
+(Con ejecución local)
+3.2.3 Propio: Funciones Avanzadas 
+3.2.3.1 Propio: Funciones Avanzadas -> DebugLocal
+3.2.3.2 Propio: Funciones Avanzadas -> CustomServo
+3.2.3.3 Propio: Funciones Avanzadas -> Window.load
+3.2.3.4 Propio: Funciones Avanzadas -> getQR
+
+[Peticiones socket.on()]
+3.2.4 Propio: Recepción (datos) de Node
+3.2.4.1 Propio: Recepción datos: -> linuxCompatible
+3.2.4.2 Propio: Recepción datos: -> debugServer
+3.2.4.3 Propio: Recepción datos: -> lcdStatus
+3.2.4.4 Propio: Recepción datos: -> LCDLogEnable
+3.2.4.5 Propio: Recepción datos: -> IP
+3.2.4.6 Propio: Recepción datos: -> port
+3.2.4.7 Propio: Recepción datos: -> testing
+3.2.4.8 Propio: Recepción datos: -> potenciometroValue
+3.2.4.9 Propio: Recepción datos: -> pulsadorValue
+3.2.4.10 Propio: Recepción datos: -> ldrValue
+3.2.4.11 Propio: Recepción datos: -> Led1Status
+3.2.4.12 Propio: Recepción datos: -> Led2Status
+3.2.4.13 Propio: Recepción datos: -> Led3Status
+3.2.4.14 Propio: Recepción datos: -> Led1StatusMs
+3.2.4.15 Propio: Recepción datos: -> Led2StatusMs
+3.2.4.16 Propio: Recepción datos: -> Led3StatusMs
+3.2.4.17 Propio: Recepción datos: -> servoStatus
+3.2.4.18 Propio: Recepción datos: -> MotorAStatus
+3.2.4.19 Propio: Recepción datos: -> MotorBStatus
+
+[Peticiones socket.emit()]
+3.2.5 Propio: Llamada a funciones en Node
+3.2.5.1 Propio: Envio datos: -> CallCustomBlink
+3.2.5.2 Propio: Envio datos: -> callPararLeds
+3.2.5.3 Propio: Envio datos: -> callParpadearLeds
+3.2.5.4 Propio: Envio datos: -> callApagarLeds
+3.2.5.5 Propio: Envio datos: -> callEncenderLeds
+3.2.5.6 Propio: Envio datos: -> callPararLed1
+3.2.5.7 Propio: Envio datos: -> callPararLed2
+3.2.5.8 Propio: Envio datos: -> callPararLed3
+3.2.5.9 Propio: Envio datos: -> callParpadearLed
+3.2.5.10 Propio: Envio datos: -> callParpadearLed2
+3.2.5.11 Propio: Envio datos: -> callParpadearLed3
+3.2.5.12 Propio: Envio datos: -> callApagarLed1
+3.2.5.13 Propio: Envio datos: -> callApagarLed2
+3.2.5.14 Propio: Envio datos: -> callApagarLed3
+3.2.5.15 Propio: Envio datos: -> callEncenderLed1
+3.2.5.16 Propio: Envio datos: -> callEncenderLed2
+3.2.5.17 Propio: Envio datos: -> callEncenderLed3
+3.2.5.18 Propio: Envio datos: -> callfullTest
+3.2.5.19 Propio: Envio datos: -> callLCDReset
+3.2.5.20 Propio: Envio datos: -> callPararTodo
+3.2.5.21 Propio: Envio datos: -> callServoBasico
+3.2.5.22 Propio: Envio datos: -> callServoStop
+3.2.5.23 Propio: Envio datos: -> callMotoresStop
+3.2.5.24 Propio: Envio datos: -> callMotoresReversa
+3.2.5.25 Propio: Envio datos: -> callMotoresAvance
+3.2.5.26 Propio: Envio datos: -> callMotoresDerecha
+3.2.5.27 Propio: Envio datos: -> callMotoresIzquierda
+3.2.5.28 Propio: Envio datos: -> callMotoresBasico
+3.2.5.29 Propio: Envio datos: -> callMotorABasico
+3.2.5.30 Propio: Envio datos: -> callMotorBBasico
+3.2.5.31 Propio: Envio datos: -> callserver
+3.2.5.32 Propio: Envio datos: -> printLCD
+3.2.5.33 Propio: Envio datos: -> callDatosSistema
+-->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>EduBasica Shield con Nodejs</title>
+
+<!--1.1 Estilos -->    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<!--1.2 Estilos Propios -->   
+    <style type="text/css">
+      .inside_test_panel{
+        margin-right:3%;
+        margin-left:3%;
+      }
+      .inside_avanzado_panel{
+        margin-right:3%;
+        margin-left:3%;        
+      }
+      .center-block {
+        text-align:center
+      }
+      .center-dimensions{
+        margin-top: 2%;
+        margin-bottom: 2%;
+      }
+      .span-led{
+        font-size: 16px;
+      }
+      .sbtitle {
+        margin-top:-5px;
+      }
+      .row-panels {
+        margin-top: 20px;
+      }
+      .footer{
+        margin-top: 15px;
+        padding-top: 6px;
+        height: 40px;
+        background-color: #FCCD03;
+        color:#363636;
+        font-size: 30px;
+      }
+      .footer a {
+        color:#363636;
+      }
+      .footer img {
+        margin-top: -17px;
+      }
+      .pmt0{
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+
+
+    <div class="container">
+
+<!-- 2.1 Contenido Cabecera  -->  
+      <div class="page-header">
+        <h1>EduBasica Shield <small>con Nodejs</small></h1>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-5">
+          <p class="lead">Bienvenido! Desde esta página podrás controlar tu Arduino junto con tu placa EduBasica y probar muchas funcionalidades importantes desde cualquier dispositivo que comparta tu red. ¡No pierdas tiempo y empieza a explorar!</p>
+          <p class="lead">Todo esta web está diseñada y construida en un entorno Open Source, lo que significa que puedes consultar  todo el código fuente, modificarlo, compartirlo, clonarlo, hacer una versión propia y mucho más...</p>
+          <p><a target="_blank" class="btn btn-primary" href="https://github.com/UlisesGascon/edubasica/tree/master/Nodejs" role="button">Documentación &raquo;</a></p>
+        </div>
+              <div class="col-lg-7">
+          <img width="100%" src="http://www.practicasconarduino.com/wp-content/uploads/2014/12/edubasica01.jpg">
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-lg-12">
+            
+
+          <div>
+<!-- 2.2 Menu Paneles --> 
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#documentacion" aria-controls="home" role="tab" data-toggle="tab">Documentación</a></li>
+              <li role="presentation"><a href="#informacion" aria-controls="informacion" role="tab" data-toggle="tab">Información</a></li>
+              <li role="presentation"><a href="#test" aria-controls="test" role="tab" data-toggle="tab">Test</a></li>
+              <li role="presentation"><a href="#avanzado" aria-controls="avanzado" role="tab" data-toggle="tab">Avanzado</a></li>
+            </ul>
+
+            <!-- Tab paneles -->
+            <div class="tab-content">
+<!-- 2.3 Panel: Documentación -->                
+              <div role="tabpanel" class="tab-pane active" id="documentacion">
+
+                <p class="pmt0">Este proyecto ha sido posible gracias al enorme trabajo de muchos desarrolladores que crean y comparten a diario código bajo licencias Open Source. Esto son solo algunas librerías que se han usado para crear este demo y toda su funcionalidad</p>
+
+                  <div class="row">
+<!-- 2.3.1 Documentación: Nodejs -->                    
+                    <div class="col-lg-4">
+                      <h2>Nodejs</h2>
+                      <p>Es un entorno de programación a nivel servidor basado en Javascript, asíncrono, con I/O de datos en una arquitectura orientada a eventos y basado en el motor V8 de Google. </p>
+                      <p><a target="_blank" class="btn btn-primary" href="https://nodejs.org/api/" role="button">Documentación &raquo;</a></p>
+                    </div>
+<!-- 2.3.2 Documentación: Johnny-Five -->                     
+                    <div class="col-lg-4">
+                      <h2>Johnny-five</h2>
+                      <p>Es un framework Javascript para Nodejs que da soporte a los microcontroladores más populares del mercado (Arduino, Edison, Raspberry Pi, etc...). Es uno de los motores más importantes de la <a href="http://nodebots.io/">Nodebots Revolution</a>.</p>
+                      <p><a target="_blank" class="btn btn-primary" href="http://johnny-five.io/" role="button">Documentación &raquo;</a></p>
+                   </div>
+<!-- 2.3.3 Documentación: Sockets.IO (Websockets) -->                    
+                    <div class="col-lg-4">
+                      <h2>Sockets.IO (Websockets)</h2>
+                      <p>Es una tecnología que proporciona un canal de comunicación bidireccional y full-duplex sobre un único socket TCP. Lo que nos permite enviar información entre el cliente y el servidor en tiempo real, sin tener que refrescar constantemente.</p>
+                      <p><a target="_blank" class="btn btn-primary" href="http://socket.io/docs/#" role="button">Documentación &raquo;</a></p>
+                    </div>
+                  </div>
+
+
+                  <div class="row">
+<!-- 2.3.4 Documentación: Jquery-QRCode -->                      
+                    <div class="col-lg-4">
+                      <h2>Jquery-QRCode</h2>
+                      <p>Genial Script que nos permite crear una imagen QR para poder transferir fácilmente contenidos. En este caso, lo usamos para crear un código QR y que nos resulte mas fácil acceder a esta demo web desde cualquier dispositivo.</p>
+                      <p><a target="_blank" class="btn btn-primary" href="https://github.com/jeromeetienne/jquery-qrcode" role="button">Más información &raquo;</a></p>
+                    </div>
+<!-- 2.3.5 Documentación: Twitter Bootstrap -->                    
+                    <div class="col-lg-4">
+                      <h2>Twitter Bootstrap</h2>
+                      <p>Uno de los frameworks de diseño más populares, nos permite crear un entorno responsive con gran cantidad de funcionalidades ya predefinidas. He procurado respetar al máximo los estilos predefinidos, así como las funcionalidades.</p>
+                      <p><a target="_blank" class="btn btn-primary" href="http://getbootstrap.com/getting-started/" role="button">View details &raquo;</a></p>
+                    </div>
+<!-- 2.3.6 Documentación: EduBasica Shield -->                    
+                    <div class="col-lg-4">
+                      <h2>EduBasica Shield</h2>
+                      <p>EduBasica es una tarjeta de prototipado rápido para conectar a Arduino. Incluye componentes electrónicos básicos de ese modo solo necesitamos centrarnos en la programación. Existe un <a href="http://www.practicasconarduino.com/libro/">libro genial</a> con gran cantidad de prácticas y proyectos. </p>
+                      <p><a target="_blank" class="btn btn-primary" href="http://www.practicasconarduino.com/edubasica/" role="button">Compra tu placa &raquo;</a></p>
+                    </div>
+                  </div>
+
+
+              </div>
+<!-- 2.4 Panel: Información -->                
+              <div role="tabpanel" class="tab-pane" id="informacion">
+
+                <div class="row row-panels">
+                  <div class="col-lg-3">
+<!-- 2.4.1 Información: Variables del entorno --> 
+                    <div class="panel panel-info">
+                      <div class="panel-heading">
+                        Variables del entorno
+                      </div>  
+                      <div class="panel-body">
+                        <p>Debug Servidor: <span id="debugServer"></span></p>
+                        <p>Debug local: <span id="debugLocal"></span></p>
+                        <p>LCD: <span id="lcdStatus"></span></p>
+                      </div>
+                    </div>  
+
+                  </div>
+                  <div class="col-lg-3">
+<!-- 2.4.2 Información: Conectividad -->                      
+                    <div class="panel panel-info">
+                      <div class="panel-heading">
+                        Conectividad
+                      </div>  
+                      <div class="panel-body">
+                        <p>IP: <span><strong id="IP"></strong></span></p>
+                        <p>Puerto: <span><strong id="puerto"></strong></span></p>
+                        <p>LCD Log: <span id="LCDLogEnable"></span></p>
+                      </div>
+                    </div>    
+                   
+                  </div>  
+
+                  <div class="col-lg-3">
+<!-- 2.4.3 Información: Más detalles -->
+                    <div class="panel panel-info">
+                      <div class="panel-heading">
+                        Más detalles
+                      </div>  
+                      <div class="panel-body">
+                        <p>Sistema: <span><strong id="linuxCompatible"></strong></span></p>
+                        <p>(Solo para Linux y Raspberry Pi)</p>
+                        <button onClick="callDatosSistema()" id="linuxCompatibleButton" class="btn btn-info" type="button" data-toggle="modal" data-target="#systemModal">Información del sistema</button>
+                      </div>
+                    </div>    
+              
+                  </div>  
+
+                  <div class="col-lg-3">
+<!-- 2.4.4 Información: QR -->
+                    <div class="panel panel-info">
+                      <div class="panel-heading">
+                        QR
+                      </div>  
+                      <div class="panel-body">
+                        <div id="qrcodeCanvas"></div>
+                      </div>
+                    </div>
+
+                  </div>  
+
+                </div>  
+                
+                <!-- SENSORES Y DEMAS -->
+                <div class="row">
+                  <div class="col-lg-12">
+<!-- 2.4.5 Información: Información en tiempo real -->                     
+                    <div class="panel panel-info">
+                      <div class="panel-heading">
+                        Información en tiempo real
+                      </div>  
+                      <div class="panel-body">
+                        <div class="col-lg-1">
+                        </div>  
+<!-- 2.4.5.1 Información: Información en tiempo real -> Imagen -->
+                        <div class="col-lg-6">
+                          <img width="100%" src="http://www.blog.ulisesgascon.com/wp-content/uploads/2015/07/edubasica_vector.png">
+                        </div>
+                        <div class="col-lg-3">
+<!-- 2.4.5.2 Información: Información en tiempo real -> Lista -->
+                          <div class="list-group">
+                            <button type="button" class="list-group-item">
+                              <strong>LED 01: </strong><span id="Led1Status"></span><span id="Led1StatusMs" class="text-warning"></span>
+                            </button>
+                            <button type="button" class="list-group-item">
+                              <strong>LED 02: </strong><span id="Led2Status"></span><span id="Led2StatusMs" class="text-warning"></span>
+                            </button>
+                            <button type="button" class="list-group-item">
+                              <strong>LED 03: </strong><span id="Led3Status"></span><span id="Led3StatusMs" class="text-warning"></span>
+                            </button>
+                            <button type="button" class="list-group-item">
+                              <strong>SERVO: </strong><span id="servoStatus"></span>
+                            </button>
+                            <button type="button" class="list-group-item">
+                              <strong>MOTOR B: </strong><span id="MotorBStatus"></span>
+                            </button>
+                            <button type="button" class="list-group-item">
+                              <strong>MOTOR A: </strong><span id="MotorAStatus"></span>
+                            </button>
+                            <button type="button" class="list-group-item">
+                              <strong>LDR: </strong><span id="LDR"></span>
+                            </button>
+                            <button type="button" class="list-group-item">
+                              <strong>POTENCIOMETRO: </strong><span id="potenciometro"></span>
+                            </button>
+                            <button type="button" class="list-group-item">
+                              <strong>PULSADOR: </strong><span id="pulsador"></span>
+                            </button>
+                          </div>
+
+                        </div>
+                        <div class="col-lg-2"></div>  
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+              </div>
+
+<!-- 2.5 Panel: Test -->  
+              <div role="tabpanel" class="tab-pane" id="test">
+              
+              <div class="inside_test_panel" style="">
+
+
+                <div class="row row-panels">
+<!-- 2.5.1 Test: Full Test --> 
+                  <div class="panel panel-info">
+                      <div class="panel-heading">
+                        Full Test
+                      </div>  
+                      <div class="panel-body">
+                        <div class="col-lg-2">
+                          <button type="button" class="btn btn-info" id="FullTestButton" onClick="callfullTest()">Empezar</button>
+                          <button type="button" id="FullTestButtonStop" class="btn btn-danger hide_element" onCLick="callPararTodo()">Parar</button>
+                        </div>
+                        <div class="col-lg-10">
+                          Al pulsar empezar se dispara una prueba de motores (Motor A y B) que dura un tiempo limitado, además activa el parpadeo en todos los Leds y el servo girará sin parar los 180 grados.
+                          Al pulsar parar se apagan los leds y el servo. (Los motores van temporizados).
+                        </div>
+                      </div>
+                  </div>
+
+                </div>
+
+                <div class="row">
+<!-- 2.5.2 Test: Servo Test --> 
+                  <div class="panel panel-info">
+                      <div class="panel-heading">
+                        Servo Test
+                      </div>  
+                      <div class="panel-body">
+                        <div class="col-lg-2">
+                          <button type="button" id="ServoTestButton" class="btn btn-info" onCLick="callServoBasico()">Empezar</button>
+                          <button type="button" id="ServoTestButtonStop" class="btn btn-danger hide_element" onCLick="callServoStop()">Parar</button>
+                        </div>
+                        <div class="col-lg-10">
+                          <p>Al pulsar empezar el servo girará sin parar los 180 grados. Al pulsar parar se para el servo.</p>
+                        </div>
+                      </div>
+                  </div>
+
+                </div>
+
+                <div class="row">
+<!-- 2.5.3 Test: Motores Test --> 
+                  <div class="panel panel-info">
+                      <div class="panel-heading">
+                        Motores Test
+                      </div>  
+                      <div class="panel-body">
+                        <div class="col-lg-3">
+                          <button type="button" id="MotoresTestButton" class="btn btn-info" onClick="callMotoresBasico()">Empezar</button>
+                          <br>
+                          <div class="center-dimensions">
+                            
+                            <button type="button" id="MotorATestButton" class="btn btn-warning" onClick="callMotorABasico()">
+                              MotorA 
+                            </button>
+                            <button type="button" id="MotorBTestButton" class="btn btn-warning" onClick="callMotorBBasico()">
+                              MotorB 
+                            </button>
+                      
+                          </div>
+                        </div>
+                        <div class="col-lg-9">
+                          <p>Al pulsar empezar se inicia una prueba temporizada en ambos motores.</p>
+                          <p>Al pulsar MotorA se inicia una prueba temporizada solo en este motor.</p>
+                          <p>Al pulsar MotorB se inicia una prueba temporizada solo en este motor.</p>
+                        </div>
+                      </div>
+                  </div>
+
+                </div>
+
+                <div class="row">
+<!-- 2.5.4 Test: Led Test -->
+                  <div class="panel panel-info">
+                      <div class="panel-heading">
+                        Led Test
+                      </div>  
+                      <div class="panel-body">
+                        <div class="col-lg-3">
+                          <button type="button" class="btn btn-info" id="LedsTestButton"  onClick="callParpadearLeds()">Empezar</button>
+                          <button type="button" id="LedsTestButtonStop" class="btn btn-danger hide_element" onCLick="callPararLeds()">Parar</button>
+                        </div>
+                        <div class="col-lg-9">
+                          <p>Al pulsar empezar se inicia el parpadeo indefinido a 500ms en todos los leds. Al pulsar parar se apagan todos los leds.</p>
+                        </div>
+                      </div>
+                  </div>
+
+                </div>
+                
+              </div>
+
+
+              </div>
+<!-- 2.6 Panel: Avanzado -->              
+              <div role="tabpanel" class="tab-pane" id="avanzado">
+
+                <div class="inside_avanzado_panel" style="">
+
+                  <div class="row row-panels">
+<!-- 2.6.1 Avanzado: Dirección -->
+                    <div class="panel panel-warning">
+                      <div class="panel-heading">
+                        Dirección
+                      </div>  
+                      <div class="panel-body">
+                        <div class="col-lg-2">
+
+                          <div class="center-block">
+                            <button type="button" class="btn btn-primary" onClick="callMotoresAvance()">
+                              <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                            </button>
+                          </div>
+                          <div class="center-block center-dimensions">
+                            <button type="button" class="btn btn-primary" onClick="callMotoresIzquierda()">
+                              <span class="glyphicon glyphicon-triangle-left" aria-hidden="true" ></span>
+                            </button>
+                            <button type="button" class="btn btn-danger" onClick="callMotoresStop()">
+                                <span class="glyphicon glyphicon-stop" aria-hidden="true" ></span>
+                            </button>
+                            <button type="button" class="btn btn-primary" onClick="callMotoresDerecha()">
+                              <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+                            </button>
+                          </div>
+                          <div class="center-block">                      
+                            <button type="button" class="btn btn-primary" onClick="callMotoresReversa()">
+                              <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" ></span>
+                            </button>
+                          </div>
+
+                        </div>
+                        <div class="col-lg-10">
+
+                          <p>En este bloque, buscamos experimentar el control de un vehículo de dos motores a través del navegador.</p>
+                          <p>Hacia delante empuja los dos motores a la misma velocidad y dirección.</p>
+                          <p>Hacia la derecha empuja cada motor a una dirección opuesta, pero manteniendo la misma velocidad.</p>
+                          <p>Hacia la Izquierda empuja cada motor a una dirección opuesta, pero manteniendo la misma velocidad.</p>
+                          <p>Hacia detrás empuja los dos motores a la misma velocidad y dirección</p>
+                          <p>El botón rojo para ambos motores en el acto.</p>
+
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+<!-- 2.6.2 Avanzado: Leds -->
+                    <div class="panel panel-warning">
+                      <div class="panel-heading">
+                        Leds
+                      </div>  
+                      <div class="panel-body">
+                        <div class="col-lg-3">
+                          <div class="center-block">
+                            <span class="span-led">Led01</span>
+                            <button type="button" class="btn btn-success"onClick="callEncenderLed1()">ON</button>
+                            <button type="button" class="btn btn-danger" onClick="callApagarLed1()">OFF</button>
+                          </div>
+                          <div class="center-block center-dimensions">
+                            <span class="span-led">Led02</span>
+                            <button type="button" class="btn btn-success" onClick="callEncenderLed2()">ON</button>
+                            <button type="button" class="btn btn-danger" onClick="callApagarLed2()">OFF</button>
+                          </div>
+                          <div class="center-block">
+                            <span class="span-led">Led03</span>
+                            <button type="button" class="btn btn-success" onClick="callEncenderLed3()">ON</button>
+                            <button type="button" class="btn btn-danger" onClick="callApagarLed3()">OFF</button>
+                          </div>                    
+                        </div>
+                        <div class="col-lg-3">
+                          <h4 class="sbtitle">Blink:</h4>
+
+                            <div class="radio-inline">
+                              <label>
+                                <input type="radio" name="CustomBlinkLed" class="CustomBlinkLed" value="led1" checked>
+                                Led01 
+                              </label>
+                            </div>
+                            <div class="radio-inline">
+                              <label>
+                                <input type="radio" name="CustomBlinkLed" class="CustomBlinkLed" value="led2">
+                                Led02  
+                              </label>
+                            </div>
+                            <div class="radio-inline">
+                              <label>
+                                <input type="radio" name="CustomBlinkLed" class="CustomBlinkLed" value="led3">
+                                Led03  
+                              </label>
+                            </div>
+
+                          <div class="input-group">
+                            
+                            <span class="input-group-btn">
+                              <button id="CustomBlinkButton" onClick="CallCustomBlink()" class="btn btn-primary" type="button">Blink!</button> 
+                            </span>
+
+                            <input id="CustomBlinkMs" type="text" class="form-control" placeholder="0 - 999 miliseconds" aria-describedby="basic-addon">
+                            <span class="input-group-addon" id="basic-addon">ms</span>
+                            
+                            <span class="input-group-btn">
+                              <button id="CustomBlinkButtonStop" class="btn btn-danger hide_element" type="button" onClick="callPararLeds()">Parar
+                              </button>
+                            </span>
+                          </div><!-- /input-group -->
+                        </div>
+                        <div class="col-lg-6">
+
+                          <p>En este bloque, buscamos experimentar el control de los leds.</p>
+                          <p>El primero nos permite encender y apagar cualquiera de los tres leds.</p>
+                          <p>El segundo nos permite iniciar el parpadeo de un led escogido, al ritmo que deseemos. El ritmo se define en milisegundos. Si no se rellena, el script usa por defecto 500ms. El botón rojo apaga todos los leds.</p>
+
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+<!-- 2.6.3 Avanzado: Servo -->
+                    <div class="panel panel-warning">
+                      <div class="panel-heading">
+                        Servo
+                      </div>  
+                      <div class="panel-body">
+                        <div class="col-lg-3">
+                          <div class="btn-group" data-toggle="buttons">
+                            <label class="servobtn btn btn-primary">
+                              <input type="radio" name="servo" id="servo1" value="0"> 0
+                            </label>
+                            <label class="servobtn btn btn-primary">
+                              <input type="radio" name="servo" id="servo2" value="45"> 45
+                            </label>
+                            <label class="servobtn btn btn-primary">
+                              <input type="radio" name="servo" id="servo3" value="90"> 90
+                            </label>
+                            <label class="servobtn btn btn-primary">
+                              <input type="radio" name="servo" id="servo4" value="135"> 135
+                            </label>            
+                            <label class="servobtn btn btn-primary">
+                              <input type="radio" name="servo" id="servo5" value="180"> 180
+                            </label>
+                          </div>               
+                        </div>
+                        <div class="col-lg-9">
+                          <p>El servo se mueve al ángulo indicado en el botón y se para.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="row" id="LCDAvanzadoMensajes">
+<!-- 2.6.4 Avanzado: LCD -->                    
+                    <div class="panel panel-warning">
+                      <div class="panel-heading">
+                        LCD
+                      </div>  
+                      <div class="panel-body">
+                        
+                        <div class="col-lg-6">
+                          <div class="input-group center-dimensions">
+                            <!-- LINEA 1-->
+                            <input id="lcdLine1" maxlength="20" type="text" class="form-control" placeholder="texto" aria-describedby="basic-addon1">
+                            <span class="input-group-addon" id="basic-addon1">linea 1</span>
+                          </div>
+                          <div class="input-group center-dimensions">  
+                            <!-- LINEA 2-->
+                            <input id="lcdLine2" maxlength="20" type="text" class="form-control" placeholder="texto" aria-describedby="basic-addon2">
+                            <span class="input-group-addon" id="basic-addon2">linea 2</span>
+                          </div>
+                          <div class="input-group center-dimensions">  
+                            <!-- LINEA 3-->
+                            <input id="lcdLine3" maxlength="20" type="text" class="form-control" placeholder="texto" aria-describedby="basic-addon3">
+                            <span class="input-group-addon" id="basic-addon3">linea 3</span>
+                          </div>
+                          <div class="input-group center-dimensions">  
+                            <!-- LINEA 4-->
+                            <input id="lcdLine4" maxlength="20" type="text" class="form-control" placeholder="texto" aria-describedby="basic-addon4">
+                            <span class="input-group-addon" id="basic-addon4">linea 4</span>
+                          </div>
+                          <div class="btn-group pull-right" data-toggle="buttons">
+                            <label class="btn btn-danger" id="resetLCD" onClick="callLCDReset()">
+                              <input type="radio" name="resetLCD" value="resetLCD" > Reset
+                            </label>
+                            <label class="btn btn-warning" id="" onClick="limpiarCampos()">
+                              <input type="radio"> Limpiar
+                            </label>
+                            <label class="btn btn-success" id="printLCD" onClick="printLCD()">
+                              <input type="radio" name="printLCD"  value="printLCD" > Enviar
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+
+                          <p>En este bloque, buscamos experimentar el envío de mensajes al LCD.</p>
+                          <p>Es importante tener en cuenta que este script está preparado para un LCD de 20(caracteres)x4(filas).</p>
+                          <p>La línea 1 define la línea superior del LCD, y así consecutivamente hasta la cuarta, que representa la línea inferior del LCD.</p>
+
+                          <p>El botón Enviar actualiza el display con los datos introducidos previamente en los campos.</p>
+                          <p>El botón Limpiar, borra todo lo introducido en los campos sin alterar el LCD.</p>
+                          <p>El botón Reset, cambia el contenido del LCD al mensaje por defecto.</p>
+
+                          <p>Nota: El campo admite máximo 20 caracteres, y no deja escribir más.</p>
+
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+
+
+
+
+
+                </div>
+
+
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+
+    </div> <!-- FIN - container -->
+<!-- 2.7 Footer -->
+      <footer class="footer">
+        <div class="container">
+
+            <img height="30" src="http://www.blog.ulisesgascon.com/wp-content/themes/wordpress-bootstrap-master/logo_ulises.png">
+            
+            <a class="pfooter" target="_blank" href="https://twitter.com/kom_256"><p class="pull-right fa fa-twitter-square"></p></a>
+            <a class="pfooter" target="_blank" href="https://github.com/UlisesGascon"><p class="pull-right fa fa-github-square" ></p></a>
+
+        </div>
+      </footer>
+
+
+
+
+<!-- 2.8 Modal de Panel Información -->
+<div class="modal fade" id="systemModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">
+          <span id="hostname"> </span>
+          <span class="pull-right" id="uptime"> </span>
+          
+        </h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-5">
+<!-- 2.8.1 Panel Información: CPU -->            
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                CPU
+              </div>  
+              <div class="panel-body">
+                <p>CPU Temp: <span id="cpuTemp"></span>°</p>
+                <p>CPU Usado: <span id="cpuUsageUpdate"></span>%</p>
+              </div>
+            </div>
+<!-- 2.8.2 Panel Información: Memoria -->            
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                Memoria
+              </div>  
+              <div class="panel-body">
+                <p>Libre: <span id="memFree"></span><span id="percentFree"></span></p>
+                <p>Usado: <span id="memUsed"></span><span id="percentUsed"></span></p>
+                <p>Buffer: <span id="memBuffered"></span><span id="percentBuffered"></span></p>
+                <p>Cache: <span id="memCached"></span><span id="percentCached"></span></p>
+                <p>Total: <span id="memoryTotal"></span></p>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-lg-7">
+<!-- 2.8.3 Panel Información: Procesos -->             
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                Procesos
+              </div>  
+              <div class="panel-body">
+                <p>#1 - <span id="toplist1"></span></p>
+                <p>#2 - <span id="toplist2"></span></p>
+                <p>#3 - <span id="toplist3"></span></p>
+                <p>#4 - <span id="toplist4"></span></p>
+                <p>#5 - <span id="toplist5"></span></p>
+                <p>#6 - <span id="toplist6"></span></p>
+                <p>#7 - <span id="toplist7"></span></p>
+                <p>#8 - <span id="toplist8"></span></p>
+                <p>#9 - <span id="toplist9"></span></p>
+                <p>#10 - <span id="toplist10"></span></p>               
+              </div>
+            </div>
+
+          </div>
+        </div>  
+      </div>
+      <div class="modal-footer">
+        <span class="pull-left" id="kernel"> </span>
+        <button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 3.1 Librerias de terceros -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- QR -->
+    <script src="http://jeromeetienne.github.io/jquery-qrcode/src/jquery.qrcode.js"></script>
+    <script src="http://jeromeetienne.github.io/jquery-qrcode/src/qrcode.js"></script>
+    <!-- SOCKETS -->  
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+
+<!-- 3.2 Scripts propios -->    
+    <script type="text/javascript">
+
+
+/* 3.2.1 Propio: Ajustes visuales */
+
+
+// 3.2.1.1 Propio: Ajustes visuales -> Limpiar Campos formulario LCD
+function limpiarCampos() {
+  $("#lcdLine1").val('');
+  $("#lcdLine2").val('');  
+  $("#lcdLine3").val('');
+  $("#lcdLine4").val('');  
+};
+
+// 3.2.1.2 Propio: Ajustes visuales -> Ocultar elementos (General)
+$(".hide_element").css('visibility', 'hidden');
+
+
+// 3.2.1.3 Propio: Ajustes visuales -> Botones de CustomBlink
+$("#CustomBlinkButton").click(function(){
+    $("#CustomBlinkButton").css('visibility', 'hidden');
+    $("#CustomBlinkButtonStop").css('visibility', 'visible');  
+});
+
+$("#CustomBlinkButtonStop").click(function(){
+    $("#CustomBlinkButton").css('visibility', 'visible'); 
+    $("#CustomBlinkButtonStop").css('visibility', 'hidden');    
+});
+
+
+// 3.2.1.4 Propio: Ajustes visuales -> Botones de LedsTest
+$("#LedsTestButton").click(function(){
+    $("#LedsTestButton").css('visibility', 'hidden');
+    $("#LedsTestButtonStop").css('visibility', 'visible');  
+});
+
+$("#LedsTestButtonStop").click(function(){
+    $("#LedsTestButton").css('visibility', 'visible');
+    $("#Led1TestButton").css('visibility', 'visible');
+    $("#Led2TestButton").css('visibility', 'visible');
+    $("#Led3TestButton").css('visibility', 'visible'); 
+    $("#LedsTestButtonStop").css('visibility', 'hidden');    
+});
+
+// 3.2.1.5 Propio: Ajustes visuales -> Botones de Fulltest
+$("#FullTestButton").click(function(){
+    $("#FullTestButton").css('visibility', 'hidden');
+    $("#FullTestButtonStop").css('visibility', 'visible');  
+});
+
+$("#FullTestButtonStop").click(function(){
+    $("#FullTestButton").css('visibility', 'visible'); 
+    $("#FullTestButtonStop").css('visibility', 'hidden');    
+});
+
+// 3.2.1.6 Propio: Ajustes visuales -> Botones de servotest
+$("#ServoTestButton").click(function(){
+    $("#ServoTestButton").css('visibility', 'hidden');
+    $("#ServoTestButtonStop").css('visibility', 'visible');  
+});
+
+$("#ServoTestButtonStop").click(function(){
+    $("#ServoTestButton").css('visibility', 'visible'); 
+    $("#ServoTestButtonStop").css('visibility', 'hidden');    
+});
+
+// 3.2.3 Propio: Variables Globales
+var IP = "VACIO";
+var port = 0;
+var socket = io.connect();
+var debugMode = false;
+
+/* 
+  == 3.2.3 Propio: Funciones Avanzadas ==
+*/
+
+// 3.2.3.1 Propio: Funciones Avanzadas -> DebugLocal
+if (debugMode) {
+  var x = document.getElementById("debugLocal");
+  x.innerHTML = "Activado";
+  $("#debugLocal").removeClass( "text-danger" ).addClass( "text-success" );
+} else{
+  var x = document.getElementById("debugLocal");
+  x.innerHTML = "Desactivado";
+  $("#debugLocal").removeClass("text-success").addClass( "text-danger" );
+};
+
+// 3.2.3.2 Propio: Funciones Avanzadas -> CustomServo
+$('.servobtn').on('change',function(){
+
+  contenido = $('input[name=servo]:checked').val()
+
+  if (debugMode) {
+    console.log("Servo a posición: "+contenido)
+  };
+
+  socket.emit('servo', contenido);
+});
+
+/*
+  == [Peticiones socket.on()] Recepción (datos) de Node ==
+*/
+
+// 3.2.4.1 Propio: Recepción datos: -> linuxCompatible
+socket.on('linuxCompatible', function(content) { 
+  if (debugMode) {
+  console.log("linuxCompatible: "+content);
+  };
+
+  var x = document.getElementById("linuxCompatible");
+  x.innerHTML = content; 
+
+  if (content == "Linux Compatible") {
+    $("#linuxCompatible").removeClass( "text-danger" ).addClass( "text-success" );
+    $("#linuxCompatibleButton").prop('disabled', false);
+  } else {
+    $("#linuxCompatible").removeClass("text-success").addClass( "text-danger" );
+    $("#linuxCompatibleButton").prop('disabled', true);
+  };
+});
+
+// 3.2.4.2 Propio: Recepción datos: -> debugServer
+socket.on('debugServer', function(content) { 
+  if (debugMode) {
+  console.log("debugServer: "+content);
+  };
+
+  var x = document.getElementById("debugServer");
+  x.innerHTML = content;
+
+  if (content == "Activado") {
+    $("#debugServer").removeClass( "text-danger" ).addClass( "text-success" );
+  } else {
+    $("#debugServer").removeClass("text-success").addClass( "text-danger" );
+  };
+});
+
+// 3.2.4.3 Propio: Recepción datos: -> lcdStatus
+socket.on('lcdStatus', function(content) { 
+  if (debugMode) {
+  console.log("lcdStatus: "+content);
+  };
+
+  var x = document.getElementById("lcdStatus");
+  x.innerHTML = content;
+
+  if (content == "Activado") {
+    $("#lcdStatus").removeClass( "text-danger" ).addClass( "text-success" );
+    $("#LCDAvanzadoMensajes").css('visibility', 'visible'); 
+  } else {
+    $("#lcdStatus").removeClass("text-success").addClass( "text-danger" );
+    $("#LCDAvanzadoMensajes").css('visibility', 'hidden'); 
+  };
+});
+
+// 3.2.4.4 Propio: Recepción datos: -> LCDLogEnable
+socket.on('LCDLogEnable', function(content) { 
+  if (debugMode) {
+  console.log("LCDLogEnable: "+content);
+  };
+
+  var x = document.getElementById("LCDLogEnable");
+  x.innerHTML = content;
+
+  if (content == "Activado") {
+    $("#LCDLogEnable").removeClass( "text-danger" ).addClass( "text-success" );
+  } else {
+    $("#LCDLogEnable").removeClass("text-success").addClass( "text-danger" );
+  };
+});
+
+// 3.2.4.5 Propio: Recepción datos: -> IP
+socket.on('IP', function(content) { 
+  if (debugMode) {
+  console.log("IP: "+content);
+  };
+
+  IP = content;
+  var x = document.getElementById("IP");
+  x.innerHTML = content; 
+});
+
+// 3.2.4.6 Propio: Recepción datos: -> port
+socket.on('port', function(content) { 
+  if (debugMode) {
+    console.log("port: "+content);
+  };
+
+  port = content;
+  var x = document.getElementById("puerto");
+  x.innerHTML = content; 
+
+});
+
+// 3.2.4.7 Propio: Recepción datos: -> testing
+socket.on('testing', function(x) { 
+  console.log("testing: " +x); 
+});
+
+// 3.2.4.8 Propio: Recepción datos: -> potenciometroValue
+socket.on('potenciometroValue', function(content) { 
+  if (debugMode) {
+    console.log("potenciometro: " +content);
+  };
+
+  var x = document.getElementById("potenciometro");
+  x.innerHTML = content; 
+});
+
+// 3.2.4.9 Propio: Recepción datos: -> pulsadorValue
+socket.on('pulsadorValue', function(content) { 
+  if (debugMode) {
+    console.log("Pulsador: " +content);
+  };
+
+  var x = document.getElementById("pulsador");
+  x.innerHTML = content; 
+});
+
+// 3.2.4.10 Propio: Recepción datos: -> ldrValue
+socket.on('ldrValue', function(content) { 
+  if (debugMode) {
+    console.log("LDR: " +content);
+  };
+
+  var x = document.getElementById("LDR");
+  x.innerHTML = content; 
+});
+
+// 3.2.4.11 Propio: Recepción datos: -> Led1Status
+socket.on('Led1Status', function(content) { 
+  if (debugMode) {
+    console.log("Led01: " +content);
+  };
+
+  var x = document.getElementById("Led1Status");
+  x.innerHTML = content;
+
+  if (content == "Encendido") {
+    $("#Led1Status").removeClass( "text-danger" ).removeClass("text-warning").addClass( "text-success" );
+    $( "#Led1StatusMs" ).empty();
+  } else if(content == "Parpadeo"){
+    $("#Led1Status").removeClass( "text-danger" ).removeClass("text-success").addClass( "text-warning" );
+  } else {
+    $("#Led1Status").removeClass( "text-warning" ).removeClass("text-success").addClass( "text-danger" );
+    $( "#Led1StatusMs" ).empty();
+  };
+});
+
+// 3.2.4.12 Propio: Recepción datos: -> Led2Status
+socket.on('Led2Status', function(content) { 
+  if (debugMode) {
+    console.log("Led02: " +content);
+  };
+
+  var x = document.getElementById("Led2Status");
+  x.innerHTML = content;
+
+  if (content == "Encendido") {
+    $("#Led2Status").removeClass( "text-danger" ).removeClass("text-warning").addClass( "text-success" );
+    $( "#Led2StatusMs" ).empty();
+  } else if(content == "Parpadeo"){
+    $("#Led2Status").removeClass( "text-danger" ).removeClass("text-success").addClass( "text-warning" );
+  } else {
+    $("#Led2Status").removeClass( "text-warning" ).removeClass("text-success").addClass( "text-danger" );
+    $( "#Led2StatusMs" ).empty();
+  };
+});
+
+// 3.2.4.13 Propio: Recepción datos: -> Led3Status
+socket.on('Led3Status', function(content) { 
+  if (debugMode) {
+    console.log("Led03: " +content);
+  };
+
+  var x = document.getElementById("Led3Status");
+  x.innerHTML = content;
+
+  if (content == "Encendido") {
+    $("#Led3Status").removeClass( "text-danger" ).removeClass("text-warning").addClass( "text-success" );
+    $( "#Led3StatusMs" ).empty();
+  } else if(content == "Parpadeo"){
+    $("#Led3Status").removeClass( "text-danger" ).removeClass("text-success").addClass( "text-warning" );
+  } else {
+    $("#Led3Status").removeClass( "text-warning" ).removeClass("text-success").addClass( "text-danger" );
+    $( "#Led3StatusMs" ).empty();
+  };
+});
+
+// 3.2.4.14 Propio: Recepción datos: -> Led1StatusMs
+socket.on('Led1StatusMs', function(content) {
+
+  if (debugMode) {
+  console.log("Led1StatusMs: "+content);
+  };
+
+  var x = document.getElementById("Led1StatusMs");
+  x.innerHTML = " "+content;
+});
+
+// 3.2.4.15 Propio: Recepción datos: -> Led2StatusMs
+socket.on('Led2StatusMs', function(content) {
+
+  if (debugMode) {
+  console.log("Led2StatusMs: "+content);
+  };
+
+  var x = document.getElementById("Led2StatusMs");
+  x.innerHTML = " "+content;
+});
+
+// 3.2.4.16 Propio: Recepción datos: -> Led3StatusMs
+socket.on('Led3StatusMs', function(content) {
+
+  if (debugMode) {
+  console.log("Led3StatusMs: "+content);
+  };
+
+  var x = document.getElementById("Led3StatusMs");
+  x.innerHTML = " "+content;
+});
+
+// 3.2.4.17 Propio: Recepción datos: -> servoStatus
+socket.on('servoStatus', function(content) {
+  if (debugMode) {
+    console.log("Servo: " +content);
+  };
+
+  var x = document.getElementById("servoStatus");
+  x.innerHTML = content;
+
+  if (content == "En funcionamiento") {
+    $("#servoStatus").removeClass( "text-danger" ).addClass( "text-success" );
+  } else {
+    $("#servoStatus").removeClass("text-success").addClass( "text-danger" );
+  };
+});
+
+
+// 3.2.4.18 Propio: Recepción datos: -> MotorAStatus
+socket.on('MotorAStatus', function(content) {
+  if (debugMode) {
+    console.log("MotorA: " +content);
+  };
+
+  var x = document.getElementById("MotorAStatus");
+  x.innerHTML = content;
+
+  if (content == "En movimiento") {
+    $("#MotorAStatus").removeClass( "text-danger" ).addClass( "text-success" );
+  } else {
+    $("#MotorAStatus").removeClass("text-success").addClass( "text-danger" );
+  };
+});
+
+// 3.2.4.19 Propio: Recepción datos: -> MotorBStatus
+socket.on('MotorBStatus', function(content) {
+  
+  if (debugMode) {
+    console.log("MotorB: " +content);
+  };
+
+  var x = document.getElementById("MotorBStatus");
+  x.innerHTML = content;
+
+  if (content == "En movimiento") {
+    $("#MotorBStatus").removeClass( "text-danger" ).addClass( "text-success" );
+  } else {
+    $("#MotorBStatus").removeClass("text-success").addClass( "text-danger" );
+  };
+});
+
+
+/*
+  == [Peticiones socket.emit()] Llamada a funciones en Node ==
+*/
+
+// 3.2.5.1 Propio: Envio datos: -> CallCustomBlink
+function CallCustomBlink() {
+
+  var customBlinkMs = $("#CustomBlinkMs").val();
+  var customBlinkLed = $("input[name=CustomBlinkLed]:checked").val();  
+ 
+  socket.emit('customBlinkMs', customBlinkMs);
+  socket.emit('customBlinkLed', customBlinkLed);
+  socket.emit("callCustomBlink", "callCustomBlink requested");
+
+  if (debugMode) {
+    console.log('CustomBlink (ms): '+customBlinkMs);
+    console.log('CustomBlink (ledID): '+customBlinkLed);  
+  };
+};
+
+// 3.2.5.2 Propio: Envio datos: -> callPararLeds
+function callPararLeds() {
+  socket.emit('callPararLeds', 'callPararLeds requested');
+  if (debugMode) {
+    console.log('callPararLeds requested');
+  };
+};
+
+// 3.2.5.3 Propio: Envio datos: -> callParpadearLeds
+function callParpadearLeds() {
+  socket.emit('callParpadearLeds', 'callParpadearLeds requested');
+  if (debugMode) {
+    console.log('callParpadearLeds requested');
+  };
+};
+
+// 3.2.5.4 Propio: Envio datos: -> callApagarLeds
+function callApagarLeds() {
+  socket.emit('callApagarLeds', 'callApagarLeds requested');
+  if (debugMode) {
+    console.log('callApagarLeds requested');
+  };
+};
+
+// 3.2.5.5 Propio: Envio datos: -> callEncenderLeds
+function callEncenderLeds() {
+  socket.emit('callEncenderLeds', 'callEncenderLeds requested');
+  if (debugMode) {
+    console.log('callEncenderLeds requested');
+  };
+};
+
+// 3.2.5.6 Propio: Envio datos: -> callPararLed1
+function callPararLed1() {
+  socket.emit('callPararLed1', 'callPararLed1 requested');
+  if (debugMode) {
+    console.log('callPararLed1 requested');
+  };
+};
+
+// 3.2.5.7 Propio: Envio datos: -> callPararLed2
+function callPararLed2() {
+  socket.emit('callPararLed2', 'callPararLed2 requested');
+  if (debugMode) {
+    console.log('callPararLed2 requested');
+  };
+};
+
+// 3.2.5.8 Propio: Envio datos: -> callPararLed3
+function callPararLed3() {
+  socket.emit('callPararLed3', 'callPararLed3 requested');
+  if (debugMode) {
+    console.log('callPararLed3 requested');
+  };
+};
+
+// 3.2.5.9 Propio: Envio datos: -> callParpadearLed1
+function callParpadearLed1() {
+  socket.emit('callParpadearLed1', 'callParpadearLed1 requested');
+  if (debugMode) {
+    console.log('callParpadearLed1 requested');
+  };
+};
+
+// 3.2.5.10 Propio: Envio datos: -> callParpadearLed2
+function callParpadearLed2() {
+  socket.emit('callParpadearLed2', 'callParpadearLed2 requested');
+  if (debugMode) {
+    console.log('callParpadearLed2 requested');
+  };
+};
+
+// 3.2.5.11 Propio: Envio datos: -> callParpadearLed3
+function callParpadearLed3() {
+  socket.emit('callParpadearLed3', 'callParpadearLed3 requested');
+  if (debugMode) {
+    console.log('callParpadearLed3 requested');
+  };
+};
+
+// 3.2.5.12 Propio: Envio datos: -> callApagarLed1
+function callApagarLed1() {
+  socket.emit('callApagarLed1', 'callApagarLed1 requested');
+  if (debugMode) {
+    console.log('callApagarLed1 requested');
+  };
+};
+
+// 3.2.5.13 Propio: Envio datos: -> callApagarLed2
+function callApagarLed2() {
+  socket.emit('callApagarLed2', 'callApagarLed2 requested');
+  if (debugMode) {
+    console.log('callApagarLed2 requested');
+  };
+};
+
+// 3.2.5.14 Propio: Envio datos: -> callApagarLed3
+function callApagarLed3() {
+  socket.emit('callApagarLed3', 'callApagarLed3 requested');
+  if (debugMode) {
+    console.log('callApagarLed3 requested');
+  };
+};
+
+// 3.2.5.15 Propio: Envio datos: -> callEncenderLed1
+function callEncenderLed1() {
+  socket.emit('callEncenderLed1', 'callEncenderLed1 requested');
+  if (debugMode) {
+    console.log('callEncenderLed1 requested');
+  };
+};
+
+// 3.2.5.16 Propio: Envio datos: -> callEncenderLed2
+function callEncenderLed2() {
+  socket.emit('callEncenderLed2', 'callEncenderLed2 requested');
+  if (debugMode) {
+    console.log('callEncenderLed2 requested');
+  };
+};
+
+// 3.2.5.17 Propio: Envio datos: -> callEncenderLed3
+function callEncenderLed3() {
+  socket.emit('callEncenderLed3', 'callEncenderLed3 requested');
+  if (debugMode) {
+    console.log('callEncenderLed3 requested');
+  };
+};
+
+// 3.2.5.18 Propio: Envio datos: -> callfullTest
+function callfullTest() {
+  socket.emit('callfullTest', 'fullTest requested');
+  if (debugMode) {
+    console.log('fullTest requested');
+  };
+}
+
+// 3.2.5.19 Propio: Envio datos: -> callLCDReset
+function callLCDReset() {
+  socket.emit('callLCDReset', 'LCDReset requested');
+  if (debugMode) {
+    console.log('LCDReset requested');
+  };
+}
+
+// 3.2.5.20 Propio: Envio datos: -> callPararTodo
+function callPararTodo() {
+  socket.emit('callPararTodo', 'pararTodo requested');
+  if (debugMode) {
+    console.log('pararTodo requested');
+  };
+}
+
+// 3.2.5.21 Propio: Envio datos: -> callServoBasico
+function callServoBasico() {
+  socket.emit("callServoBasico", "ServoBasico requested");
+  if (debugMode) {
+    console.log("ServoBasico requested");
+  };
+};
+
+// 3.2.5.22 Propio: Envio datos: -> callServoStop
+function callServoStop() {
+  socket.emit("callServoStop", "callServoStop requested");
+  if (debugMode) {
+    console.log("callServoStop Requested")
+  };
+};
+
+// 3.2.5.23 Propio: Envio datos: -> callMotoresStop
+function callMotoresStop() {
+  socket.emit("callMotoresStop", "callMotoresStop requested");
+  if (debugMode) {
+    console.log("callMotoresStop Requested")
+  };
+};
+
+// 3.2.5.24 Propio: Envio datos: -> callMotoresReversa
+function callMotoresReversa() {
+  socket.emit("callMotoresReversa", "callMotoresReversa requested");
+  if (debugMode) {
+    console.log("callMotoresReversa Requested")
+  };
+};
+
+// 3.2.5.25 Propio: Envio datos: -> callMotoresAvance
+function callMotoresAvance() {
+  socket.emit("callMotoresAvance", "callMotoresAvance requested");
+  if (debugMode) {
+    console.log("callMotoresAvance Requested")
+  };
+};
+
+// 3.2.5.26 Propio: Envio datos: -> callMotoresDerecha
+function callMotoresDerecha() {
+  socket.emit("callMotoresDerecha", "callMotoresDerecha requested");
+  if (debugMode) {
+    console.log("callMotoresDerecha Requested")
+  };
+};
+
+// 3.2.5.27 Propio: Envio datos: -> callMotoresIzquierda
+function callMotoresIzquierda() {
+  socket.emit("callMotoresIzquierda", "callMotoresIzquierda requested");
+  if (debugMode) {
+    console.log("callMotoresIzquierda Requested")
+  };
+};
+
+// 3.2.5.28 Propio: Envio datos: -> callMotoresBasico
+function callMotoresBasico() {
+  socket.emit("callMotoresBasico", "callMotoresBasico requested");
+  if (debugMode) {
+    console.log("callMotoresBasico Requested")
+  };
+};
+
+// 3.2.5.29 Propio: Envio datos: -> callMotorABasico
+function callMotorABasico() {
+  socket.emit("callMotorABasico", "callMotorABasico requested");
+  if (debugMode) {
+    console.log("callMotorABasico Requested")
+  };
+};
+
+// 3.2.5.30 Propio: Envio datos: -> callMotorBBasico
+function callMotorBBasico() {
+  socket.emit("callMotorBBasico", "callMotorBBasico requested");
+  if (debugMode) {
+    console.log("callMotorBBasico Requested")
+  };
+};
+
+// 3.2.5.31 Propio: Envio datos: -> callserver
+function callserver() {
+  socket.emit('called', 'testing message from index');
+  if (debugMode) {
+    console.log('testing message from index');
+  };
+}
+
+// 3.2.5.32 Propio: Envio datos: -> printLCD
+function printLCD() {
+
+  var linea1 = $("#lcdLine1").val();
+  var linea2 = $("#lcdLine2").val();  
+  var linea3 = $("#lcdLine3").val();
+  var linea4 = $("#lcdLine4").val();  
+
+  socket.emit('lcdLine1', linea1);
+  socket.emit('lcdLine2', linea2);
+  socket.emit('lcdLine3', linea3);
+  socket.emit('lcdLine4', linea4);
+  socket.emit("callPrintLCD", "callPrintLCD requested");
+
+  if (debugMode) {
+    console.log('Linea(1): '+linea1);
+    console.log('Linea(2): '+linea2);  
+    console.log('Linea(3): '+linea3);
+    console.log('Linea(4): '+linea4);
+  };
+};
+
+// 3.2.5.33 Propio: Envio datos: -> callDatosSistema
+function callDatosSistema() {
+  // Lanzar función datosSistema en Nodejs
+  socket.emit("callDatosSistema", "callDatosSistema requested");
+  if (debugMode) {
+    console.log("callDatosSistema Requested")
+  };
+
+  /* 
+      - INICIO - FUNCIONES GENERALES 
+  */
+  socket.on('hostname', function(content) {
+    if (debugMode) {
+    console.log("hostname: "+content);
+    };
+    var x = document.getElementById("hostname");
+    x.innerHTML = " "+content;
+  });
+
+  socket.on('uptime', function(content) {
+    if (debugMode) {
+    console.log("uptime: "+content);
+    };
+    var x = document.getElementById("uptime");
+    x.innerHTML = content+"  ";
+  });
+
+  socket.on('kernel', function(content) {
+    if (debugMode) {
+    console.log("kernel: "+content);
+    };
+    var x = document.getElementById("kernel");
+    x.innerHTML = content;
+  });
+  // - FIN - FUNCIONES GENERALES 
+
+  /* 
+      - INICIO - FUNCIONES MEMORIA 
+  */
+  socket.on('memoryTotal', function(content) {
+    if (debugMode) {
+    console.log("memoryTotal: "+content);
+    };
+
+    content = content/1024;
+
+    var x = document.getElementById("memoryTotal");
+    x.innerHTML = " "+content.toFixed(0)+"Mb";
+  });
+
+  socket.on('memFree', function(content) {
+    if (debugMode) {
+    console.log("memFree: "+content);
+    };
+
+    content = content/1024;
+
+    var x = document.getElementById("memFree");
+    x.innerHTML = " "+content.toFixed(0)+"Mb";
+  });
+
+  socket.on('percentFree', function(content) {
+    if (debugMode) {
+    console.log("percentFree: "+content);
+    };
+    var x = document.getElementById("percentFree");
+    x.innerHTML = " ("+content+"%)";
+  });
+
+  socket.on('memUsed', function(content) {
+    if (debugMode) {
+    console.log("memUsed: "+content);
+    };
+
+    content = content/1024;
+
+    var x = document.getElementById("memUsed");
+    x.innerHTML = " "+content.toFixed(0)+"Mb";
+  });    
+
+  socket.on('percentUsed', function(content) {
+    if (debugMode) {
+    console.log("percentUsed: "+content);
+    };
+    var x = document.getElementById("percentUsed");
+    x.innerHTML = " ("+content+"%)";
+  });       
+
+  socket.on('memBuffered', function(content) {
+    if (debugMode) {
+    console.log("memBuffered: "+content);
+    };
+
+    content = content/1024;
+
+    var x = document.getElementById("memBuffered");
+    x.innerHTML = " "+content.toFixed(0)+"Mb";
+  });
+
+  socket.on('percentBuffered', function(content) {
+    if (debugMode) {
+    console.log("percentBuffered: "+content);
+    };
+    var x = document.getElementById("percentBuffered");
+    x.innerHTML = " ("+content+"%)";
+  });  
+
+  socket.on('memCached', function(content) {
+    if (debugMode) {
+    console.log("memCached: "+content);
+    };
+
+    content = content/1024;
+
+    var x = document.getElementById("memCached");
+    x.innerHTML = " "+content.toFixed(0)+"Mb";
+  });
+
+  socket.on('percentCached', function(content) {
+    if (debugMode) {
+    console.log("percentCached: "+content);
+    };
+    var x = document.getElementById("percentCached");
+    x.innerHTML = " ("+content+"%)";
+  });
+  // - FIN - FUNCIONES MEMORIA 
+
+  /* 
+      - INICIO - FUNCIONES DE LA CPU 
+  */
+  socket.on('cpuTemp', function(content) {
+    if (debugMode) {
+    console.log("cpuTemp: "+content);
+    };
+    var x = document.getElementById("cpuTemp");
+    x.innerHTML = " "+content;
+  });
+
+  socket.on('cpuUsageUpdate', function(content) {
+    if (debugMode) {
+    console.log("cpuUsageUpdate: "+content);
+    };
+    var x = document.getElementById("cpuUsageUpdate");
+    x.innerHTML = " "+content;
+  });
+  // - FIN - FUNCIONES DE LA CPU 
+
+  /* 
+      - INICIO - LISTA TOP 1O 
+  */
+  socket.on('toplist1', function(content) {
+    if (debugMode) {
+    console.log("toplist1: "+content);
+    };
+    var x = document.getElementById("toplist1");
+    x.innerHTML = " "+content;
+  });
+
+  socket.on('toplist2', function(content) {
+    if (debugMode) {
+    console.log("toplist2: "+content);
+    };
+    var x = document.getElementById("toplist2");
+    x.innerHTML = " "+content;
+  });
+
+  socket.on('toplist3', function(content) {
+    if (debugMode) {
+    console.log("toplist3: "+content);
+    };
+    var x = document.getElementById("toplist3");
+    x.innerHTML = " "+content;
+  });
+
+  socket.on('toplist4', function(content) {
+    if (debugMode) {
+    console.log("toplist4: "+content);
+    };
+    var x = document.getElementById("toplist4");
+    x.innerHTML = " "+content;
+  });
+
+  socket.on('toplist5', function(content) {
+    if (debugMode) {
+    console.log("toplist5: "+content);
+    };
+    var x = document.getElementById("toplist5");
+    x.innerHTML = " "+content;
+  });
+
+  socket.on('toplist6', function(content) {
+    if (debugMode) {
+    console.log("toplist6: "+content);
+    };
+    var x = document.getElementById("toplist6");
+    x.innerHTML = " "+content;
+  });
+
+  socket.on('toplist7', function(content) {
+    if (debugMode) {
+    console.log("toplist7: "+content);
+    };
+    var x = document.getElementById("toplist7");
+    x.innerHTML = " "+content;
+  });
+
+  socket.on('toplist8', function(content) {
+    if (debugMode) {
+    console.log("toplist8: "+content);
+    };
+    var x = document.getElementById("toplist8");
+    x.innerHTML = " "+content;
+  });
+
+  socket.on('toplist9', function(content) {
+    if (debugMode) {
+    console.log("toplist9: "+content);
+    };
+    var x = document.getElementById("toplist9");
+    x.innerHTML = " "+content;
+  });
+
+  socket.on('toplist10', function(content) {
+    if (debugMode) {
+    console.log("toplist10: "+content);
+    };
+    var x = document.getElementById("toplist10");
+    x.innerHTML = " "+content;
+  });
+  // - FIN - LISTA TOP 1O
+
+
+}; // FIN - callDatosSistema
+
+
+</script>
+  <script type="text/javascript">
+
+// 3.2.3.3 Propio: Funciones Avanzadas -> Window.load
+    // Esperamos a que la web este cargada para pedir el QR
+    $(window).load(function() {
+      getQR();
+    });
+
+// 3.2.3.4 Propio: Funciones Avanzadas -> getQR
+    // Función para generar el QR en base a la IP y Puerto facilitado por el Socket
+    function getQR() {
+      $('#qrcodeCanvas').qrcode({
+          width: 90,
+          height: 90,
+          text  : "http://"+IP+":"+port
+        }); 
+    };
+
+  </script>
+<!-- FIN SCRIPTS  -->
+  </body>
+</html>
